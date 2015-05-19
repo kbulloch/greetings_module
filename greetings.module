@@ -5,13 +5,13 @@ function greetings_menu() {
         'title' => 'Hallo',
         'page callback' => 'hello_buddy',
         'access callback' => TRUE,
-        'type' => MENU_NORMAL_ITEM,
+        'type' => MENU_CALLBACK,
     );
     $items['farewell'] = array(
         'title' => 'Farewell',
         'page callback' => 'farewell_buddy',
         'access callback' => TRUE,
-        'type' => MENU_NORMAL_ITEM,
+        'type' => MENU_CALLBACK,
     );
     return $items;
 }
@@ -24,8 +24,10 @@ function farewell_buddy() {
     return "<p>By the grace of the gods, be well.</p>";
 }
 
-function greetings_user_login() {
-    $_GET['destination'] = 'hello';
+function greetings_user_login(&$edit, $account) {
+    if(in_array('reviewer', $account->roles)) {
+        $_GET['destination'] = 'node/add/book-review';
+    }
 }
 
 function greetings_user_logout() {
