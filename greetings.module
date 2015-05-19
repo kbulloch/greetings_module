@@ -27,3 +27,7 @@ function farewell_buddy() {
 function greetings_user_login() {
     $_GET['destination'] = 'hello';
 }
+
+function greetings_user_logout() {
+    $_GET['destination'] = 'farewell';
+}
