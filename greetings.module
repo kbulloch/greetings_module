@@ -1,0 +1,25 @@
+<?php
+function greetings_menu() {
+    $items = array();
+    $items['hello'] = array(
+        'title' => 'Hallo',
+        'page callback' => 'hello_buddy',
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM,
+    );
+    $items['farewell'] = array(
+        'title' => 'Farewell',
+        'page callback' => 'farewell_buddy',
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM,
+    );
+    return $items;
+}
+
+function hello_buddy() {
+    return "<p>Hello buddy, how are your dogs?</p>";
+}
+
+function farewell_buddy() {
+    return "<p>By the grace of the gods, be well.</p>";
+}
